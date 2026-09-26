@@ -1,0 +1,12 @@
+/* 网页版 AI 设置里的小节标题 */
+.ai-sub-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: none;
+  color: var(--accent-color);
+  margin-top: 16px;
+  margin-bottom: 8px;
+  border-left: 2px solid var(--accent-color);
+  padding-left: 8px;
+}

@@ -1,0 +1,111 @@
+/* Graphite: opaque, restrained surfaces; no native vibrancy required. */
+:root.theme-graphite, body.theme-graphite {
+  --bg-body: #e8eaee;
+  --bg-window: #f4f5f7;
+  --bg-toolbar: #eef0f3;
+  --bg-panel: #fafbfc;
+  --bg-input: #ffffff;
+  --bg-element: #f8f9fb;
+  --bg-button: #eceff3;
+  --text-primary: #242a33;
+  --text-secondary: #525d6c;
+  --text-muted: #626d7c;
+  --accent-color: #495d7a;
+  --accent-color-rgb: 73, 93, 122;
+  --accent-hover: #37485f;
+  --on-accent: #ffffff;
+  --bg-content: var(--bg-body);
+  --radius-window: 10px;
+  --radius-panel: 8px;
+  --radius-card: 8px;
+  --radius-control: 6px;
+  --menu-radius: 6px;
+  --modal-radius: 8px;
+  --button-radius: var(--radius-control);
+  --dialog-button-radius: var(--radius-control);
+  --data-panel-radius: var(--radius-control);
+  --segmented-radius: var(--radius-control);
+  --segment-radius: 4px;
+  --reset-button-radius: var(--radius-control);
+  --keycap-radius: var(--radius-control);
+  --tags-radius: var(--radius-control);
+  --queue-radius: var(--radius-panel);
+  --border-dark: var(--text-primary);
+  --line-soft: rgba(30, 42, 60, 0.14);
+  --line-strong: rgba(30, 42, 60, 0.25);
+  --panel-divider-color: var(--line-soft);
+  --shadow-xs: 0 1px 3px rgba(20, 28, 40, 0.06);
+  --shadow-sm: 0 4px 12px rgba(20, 28, 40, 0.08);
+  --shadow-md: 0 8px 24px rgba(20, 28, 40, 0.13);
+  --shadow-lg: 0 16px 40px rgba(20, 28, 40, 0.16);
+  --shadow-inset: none;
+  --card-shadow: var(--shadow-xs);
+  --card-hover-shadow: var(--shadow-xs);
+  --card-hover-transform: none;
+  --card-active-transform: none;
+  --card-active-shadow: none;
+  --card-selected-shadow: none;
+  --button-shadow: none;
+  --button-hover-shadow: none;
+  --button-active-shadow: none;
+  --button-hover-transform: none;
+  --button-active-filled-shadow: none;
+  --button-active-filled-color: var(--on-accent);
+  --menu-item-hover-color: var(--on-accent);
+  --dialog-button-shadow: none;
+  --dialog-button-hover-shadow: var(--shadow-xs);
+  --dialog-button-hover-transform: none;
+  --input-shadow: none;
+  --data-panel-hover-background: var(--bg-element);
+  --title-font-size: 16px;
+  --title-font-weight: 650;
+  --segment-active-background: var(--bg-panel);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.theme-graphite:not(.light-mode), body.theme-graphite:not(.light-mode) {
+  --bg-body: #191c21;
+  --bg-window: #20242a;
+  --bg-toolbar: #20242a;
+  --bg-panel: #282e36;
+  --bg-input: #1d2229;
+  --bg-element: #2b323c;
+  --bg-button: #303842;
+  --text-primary: #edf0f5;
+  --text-secondary: #b8c1ce;
+  --text-muted: #99a5b5;
+  --accent-color: #a1b7d5;
+  --accent-color-rgb: 161, 183, 213;
+  --accent-hover: #bfd0e7;
+  --on-accent: #172433;
+  --line-soft: rgba(223, 233, 249, 0.15);
+  --line-strong: rgba(223, 233, 249, 0.28);
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+:root.theme-graphite.dark-mode, body.theme-graphite.dark-mode {
+  --bg-body: #191c21;
+  --bg-window: #20242a;
+  --bg-toolbar: #20242a;
+  --bg-panel: #282e36;
+  --bg-input: #1d2229;
+  --bg-element: #2b323c;
+  --bg-button: #303842;
+  --text-primary: #edf0f5;
+  --text-secondary: #b8c1ce;
+  --text-muted: #99a5b5;
+  --accent-color: #a1b7d5;
+  --accent-color-rgb: 161, 183, 213;
+  --accent-hover: #bfd0e7;
+  --on-accent: #172433;
+  --line-soft: rgba(223, 233, 249, 0.15);
+  --line-strong: rgba(223, 233, 249, 0.28);
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+}

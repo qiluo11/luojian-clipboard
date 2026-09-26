@@ -1,0 +1,151 @@
+/* Quicker-style favorites view ("收藏夹") */
+
+.favorites-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Folder tabs (reuse .category-tab visuals, add scroll row like .category-tabs) */
+.favorite-folders {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 6px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.favorite-folders::-webkit-scrollbar {
+  display: none;
+}
+
+.favorite-folder-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Horizontal Reorder.Group holding the draggable folder tabs (the default
+   tab and the "+" button live outside it). Mirrors the .favorite-folders gap. */
+.favorite-folders-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.favorite-folder-tab-item {
+  cursor: grab;
+}
+
+.favorite-folder-tab-item:active {
+  cursor: grabbing;
+}
+
+.favorite-folder-count {
+  font-size: 9px;
+  line-height: 1;
+  padding: 2px 5px;
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+}
+
+.category-tab.active .favorite-folder-count {
+  background: rgba(255, 255, 255, 0.25);
+  color: inherit;
+}
+
+.favorite-add-folder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 8px;
+}
+
+.favorite-folder-input,
+.favorite-title-input {
+  font-family: inherit;
+  background: var(--bg-input);
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.favorite-folder-input {
+  flex-shrink: 0;
+  width: 96px;
+  font-size: 11px;
+  padding: 3px 8px;
+}
+
+.favorite-title-input {
+  width: 100%;
+  font-size: calc(var(--clipboard-item-font-size) - 1px);
+  padding: 3px 6px;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+/* In-place search row (folders tabs above, list below). */
+.favorite-search-row {
+  display: flex;
+  align-items: center;
+  padding: 0 12px 6px;
+  flex-shrink: 0;
+}
+
+/* List body */
+.favorites-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.favorites-list .empty-state {
+  flex: 1;
+}
+
+.favorite-item {
+  position: relative; /* anchor for context / move menus */
+}
+
+.favorite-image-missing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 80px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  opacity: 0.7;
+}
+
+.favorite-menu-item--current {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+/* Delete-folder dialog */
+.favorites-folder-dialog {
+  min-width: 240px;
+}
+
+.favorites-folder-dialog .confirm-dialog-buttons {
+  flex-wrap: wrap;
+}

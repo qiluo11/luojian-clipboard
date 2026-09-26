@@ -1,0 +1,118 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "LuoJian",
+  "version": "0.1.0",
+  "identifier": "io.github.qiluo11.luojian",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist/web"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "落笺",
+        "label": "main",
+        "width": 352,
+        "height": 380,
+        "minWidth": 250,
+        "minHeight": 300,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": true,
+        "backgroundColor": "#00000000",
+        "alwaysOnTop": false,
+        "decorations": false,
+        "devtools": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "dragDropEnabled": false,
+        "focusable": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: http://asset.localhost https://asset.localhost data: blob: http: https:; media-src 'self' asset: http://asset.localhost https://asset.localhost data: blob:; video-src 'self' asset: http://asset.localhost https://asset.localhost data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' ws: http: https:;",
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$HOME/**",
+          "$APPDATA/**",
+          "$APPLOCALDATA/**",
+          "$PROFILE/**"
+        ]
+      },
+      "capabilities": [
+        {
+          "identifier": "main-capability",
+          "description": "Main window capabilities",
+          "windows": [
+            "main",
+            "compact-preview"
+          ],
+          "permissions": [
+            "core:window:allow-start-dragging",
+            "core:window:allow-hide",
+            "core:window:allow-show",
+            "core:window:allow-set-focus",
+            "core:window:allow-is-visible",
+            "core:window:allow-inner-size",
+            "core:window:allow-inner-position",
+            "core:window:allow-scale-factor",
+            "core:window:allow-set-size",
+            "core:window:allow-set-position",
+            "core:window:allow-set-always-on-top",
+            "core:window:allow-current-monitor",
+            "core:window:allow-cursor-position",
+            "core:window:allow-create",
+            "core:window:allow-get-all-windows",
+            "core:webview:allow-create-webview-window",
+            "core:window:allow-set-ignore-cursor-events",
+            "core:window:allow-set-focusable",
+            "core:event:allow-listen",
+            "core:event:allow-unlisten",
+            "core:event:allow-emit",
+            "core:app:allow-version",
+            "core:app:default",
+            "dialog:allow-open",
+            "dialog:default",
+            {
+              "identifier": "core:path:default",
+              "allow": [
+                {
+                  "path": "$HOME/**"
+                },
+                {
+                  "path": "$APPDATA/**"
+                },
+                {
+                  "path": "$APPLOCALDATA/**"
+                },
+                {
+                  "path": "$PROFILE/**"
+                }
+              ]
+            },
+            "opener:default",
+            "window-state:default"
+          ]
+        }
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "publisher": "qiluo11",
+    "copyright": "Copyright (C) 2026 LongDz; modifications Copyright (C) 2026 qiluo11",
+    "shortDescription": "落笺 LuoJian - clipboard manager",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.ico"
+    ],
+    "targets": [
+      "nsis"
+    ]
+  }
+}

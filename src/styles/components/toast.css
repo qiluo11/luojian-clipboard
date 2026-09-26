@@ -1,0 +1,35 @@
+/* The window may be glass; notifications must always be readable. */
+.toast-container {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 76px);
+  overflow: auto;
+  pointer-events: none;
+}
+.toast-item {
+  background: linear-gradient(var(--bg-panel), var(--bg-panel)), var(--bg-body);
+  color: var(--text-primary);
+  border: var(--menu-border);
+  border-radius: var(--menu-radius);
+  padding: 10px 14px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: var(--menu-shadow);
+  pointer-events: auto;
+  min-width: min(160px, 100%);
+  max-width: 100%;
+  flex-shrink: 0;
+  overflow-wrap: anywhere;
+  text-align: center;
+}

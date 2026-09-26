@@ -1,0 +1,116 @@
+/* Windows Explorer access history ("路径" tab). */
+
+.explorer-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.explorer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 4px 12px 6px;
+  flex-shrink: 0;
+}
+
+/* Compact sort pill: icon + active mode label, click cycles the three modes. */
+.explorer-sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.explorer-sort-button:hover {
+  color: var(--text-primary);
+}
+
+.explorer-sort-label {
+  white-space: nowrap;
+}
+
+.explorer-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 0 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.explorer-list .empty-state {
+  flex: 1;
+}
+
+.explorer-path-item {
+  position: relative; /* anchor for the context menu */
+  cursor: pointer;
+  /* The Reorder.Item wrapper is a row flexbox: without this every card
+     shrank to its text width, so widths varied and narrow cards overlapped
+     the kind label with the action buttons. min-width lets long paths
+     ellipsize instead of widening the card. */
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.explorer-file-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.explorer-type-icon {
+  opacity: 0.75;
+}
+
+.explorer-path-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.explorer-path-text {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.explorer-path-name {
+  font-size: calc(var(--clipboard-item-font-size) + 1px);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.explorer-path-full {
+  font-size: 11px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
+  unicode-bidi: plaintext;
+}
+
+.explorer-visit-count {
+  flex-shrink: 0;
+  font-size: 9px;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+}

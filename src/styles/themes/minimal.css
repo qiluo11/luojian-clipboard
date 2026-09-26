@@ -1,0 +1,111 @@
+/* Minimal: opaque, restrained surfaces; no native vibrancy required. */
+:root.theme-minimal, body.theme-minimal {
+  --bg-body: #f3f5f9;
+  --bg-window: #ffffff;
+  --bg-toolbar: #ffffff;
+  --bg-panel: #ffffff;
+  --bg-input: #ffffff;
+  --bg-element: #f8faff;
+  --bg-button: #ffffff;
+  --text-primary: #182235;
+  --text-secondary: #52627a;
+  --text-muted: #65748b;
+  --accent-color: #285fe0;
+  --accent-color-rgb: 40, 95, 224;
+  --accent-hover: #1f4dc0;
+  --on-accent: #ffffff;
+  --bg-content: var(--bg-body);
+  --radius-window: 16px;
+  --radius-panel: 12px;
+  --radius-card: 12px;
+  --radius-control: 8px;
+  --menu-radius: 10px;
+  --modal-radius: 12px;
+  --button-radius: var(--radius-control);
+  --dialog-button-radius: var(--radius-control);
+  --data-panel-radius: var(--radius-control);
+  --segmented-radius: var(--radius-control);
+  --segment-radius: 4px;
+  --reset-button-radius: var(--radius-control);
+  --keycap-radius: var(--radius-control);
+  --tags-radius: var(--radius-control);
+  --queue-radius: var(--radius-panel);
+  --border-dark: var(--text-primary);
+  --line-soft: rgba(30, 42, 60, 0.14);
+  --line-strong: rgba(30, 42, 60, 0.25);
+  --panel-divider-color: var(--line-soft);
+  --shadow-xs: 0 1px 3px rgba(20, 28, 40, 0.06);
+  --shadow-sm: 0 4px 12px rgba(20, 28, 40, 0.08);
+  --shadow-md: 0 8px 24px rgba(20, 28, 40, 0.13);
+  --shadow-lg: 0 16px 40px rgba(20, 28, 40, 0.16);
+  --shadow-inset: none;
+  --card-shadow: none;
+  --card-hover-shadow: var(--shadow-xs);
+  --card-hover-transform: none;
+  --card-active-transform: none;
+  --card-active-shadow: none;
+  --card-selected-shadow: none;
+  --button-shadow: none;
+  --button-hover-shadow: none;
+  --button-active-shadow: none;
+  --button-hover-transform: none;
+  --button-active-filled-shadow: none;
+  --button-active-filled-color: var(--on-accent);
+  --menu-item-hover-color: var(--on-accent);
+  --dialog-button-shadow: none;
+  --dialog-button-hover-shadow: var(--shadow-xs);
+  --dialog-button-hover-transform: none;
+  --input-shadow: none;
+  --data-panel-hover-background: var(--bg-element);
+  --title-font-size: 18px;
+  --title-font-weight: 650;
+  --segment-active-background: var(--bg-panel);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root.theme-minimal:not(.light-mode), body.theme-minimal:not(.light-mode) {
+  --bg-body: #111722;
+  --bg-window: #192231;
+  --bg-toolbar: #161e2b;
+  --bg-panel: #1f2a3b;
+  --bg-input: #151e2c;
+  --bg-element: #223047;
+  --bg-button: #26354a;
+  --text-primary: #edf2fb;
+  --text-secondary: #b4c2d8;
+  --text-muted: #94a5be;
+  --accent-color: #8cafff;
+  --accent-color-rgb: 140, 175, 255;
+  --accent-hover: #aac3ff;
+  --on-accent: #142139;
+  --line-soft: rgba(223, 233, 249, 0.15);
+  --line-strong: rgba(223, 233, 249, 0.28);
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+  }
+}
+
+:root.theme-minimal.dark-mode, body.theme-minimal.dark-mode {
+  --bg-body: #111722;
+  --bg-window: #192231;
+  --bg-toolbar: #161e2b;
+  --bg-panel: #1f2a3b;
+  --bg-input: #151e2c;
+  --bg-element: #223047;
+  --bg-button: #26354a;
+  --text-primary: #edf2fb;
+  --text-secondary: #b4c2d8;
+  --text-muted: #94a5be;
+  --accent-color: #8cafff;
+  --accent-color-rgb: 140, 175, 255;
+  --accent-hover: #aac3ff;
+  --on-accent: #142139;
+  --line-soft: rgba(223, 233, 249, 0.15);
+  --line-strong: rgba(223, 233, 249, 0.28);
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.16);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.22);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.32);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+}

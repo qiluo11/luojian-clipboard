@@ -1,0 +1,443 @@
+header {
+  padding: 6px 0;
+  background: var(--bg-toolbar);
+  border-bottom: var(--toolbar-border);
+  box-shadow: var(--toolbar-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+  user-select: none;
+  cursor: default;
+}
+
+.window-drag-region {
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+
+.window-no-drag {
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--spacing-md);
+  gap: var(--spacing-sm);
+  min-height: 20px;
+}
+
+.header-leading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.header-drag-region {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  min-height: 20px;
+  cursor: grab;
+}
+
+.header-drag-region:active {
+  cursor: grabbing;
+}
+
+.header-title {
+  font-family: var(--title-font-family);
+  font-weight: var(--title-font-weight);
+  text-transform: var(--title-transform);
+  letter-spacing: var(--title-letter-spacing);
+  background: var(--title-background);
+  color: var(--title-color);
+  border: var(--title-border);
+  border-radius: var(--title-radius);
+  box-shadow: var(--title-shadow);
+  padding: var(--title-padding);
+  font-size: var(--title-font-size);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.header-actions .btn-icon,
+.header-leading > .btn-icon {
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+}
+
+.header-actions .btn-icon:hover,
+.header-leading > .btn-icon:hover {
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
+}
+
+.header-actions .btn-icon:active,
+.header-leading > .btn-icon:active {
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.05);
+}
+
+.header-chat-btn {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  flex: 0 0 30px;
+  box-sizing: border-box;
+}
+
+/* Quicker-style persistent category tabs (clipboard view only) */
+.category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px var(--spacing-md) 2px;
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 3px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  font-family: inherit;
+  border-radius: 999px;
+  background: var(--bg-button);
+  border: var(--button-border);
+  color: var(--text-primary);
+  opacity: 0.72;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.05);
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.category-tab:hover {
+  opacity: 1;
+  background: var(--bg-input);
+}
+
+.category-tab.active {
+  opacity: 1;
+  font-weight: 600;
+  background: var(--button-active-filled-background);
+  color: var(--button-active-filled-color);
+  border-color: var(--button-active-filled-border-color);
+  box-shadow: var(--button-active-filled-shadow);
+}
+
+/* "剪贴板 | 收藏" view switch (lives at the head of the category-tabs row) */
+.view-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.view-switch-divider {
+  width: 1px;
+  height: 14px;
+  flex-shrink: 0;
+  margin: 0 2px;
+  background: var(--border-dark);
+  opacity: 0.5;
+}
+
+.search-container {
+  position: relative;
+  width: 100%;
+  margin-top: 2px;
+  overflow: visible !important;
+  padding: 0 var(--spacing-md);
+}
+
+.search-input {
+  width: 100%;
+  background: var(--bg-input);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  padding: 10px 12px 10px 36px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-weight: var(--input-font-weight);
+  font-size: 14px;
+  outline: none;
+  box-shadow: var(--input-shadow);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+select.search-input,
+select.search-input option {
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+/* Hide number input spinner arrows */
+.search-input[type="number"]::-webkit-inner-spin-button,
+.search-input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.search-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.search-input:focus {
+  background: var(--bg-input);
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+}
+
+/* Compact in-view search rows ("paths" tab & favorites view). Same visual
+   language as .search-input but inline-sized; these are the Alt+F targets
+   while those views are active (App.tsx `data-inplace-search`). */
+.inline-search {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.inline-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--bg-input);
+  border: var(--input-border);
+  border-radius: var(--input-radius);
+  padding: 5px 24px 5px 26px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 12px;
+  line-height: 1.4;
+  outline: none;
+  box-shadow: var(--input-shadow);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.inline-search-input:focus {
+  background: var(--bg-input);
+  border-color: var(--input-focus-border-color);
+  box-shadow: var(--input-focus-shadow);
+}
+
+.inline-search-icon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.inline-search-clear {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.inline-search-clear:hover {
+  color: var(--text-primary);
+  background: rgba(128, 128, 128, 0.18);
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-secondary);
+}
+
+.main-content {
+  flex: 1;
+  /* Required so the list viewport shrinks when the in-flow search row grows
+     above it (flex items default to min-height:auto and would overflow). */
+  min-height: 0;
+  overflow-y: hidden;
+  padding: 6px 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-content);
+  gap: 6px;
+  width: 100%;
+}
+
+.main-content.main-content-chat-mode {
+  padding-bottom: 0;
+  gap: 0;
+}
+
+.virtual-list-wrapper {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  margin-right: 0;
+}
+
+.history-list-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+.scroll-top-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  border-radius: var(--radius-pill);
+  padding: 8px;
+}
+
+.virtual-list-wrapper .virtuoso-scroller {
+  width: calc(100% + var(--scrollbar-overlay-width, 10px));
+  margin-right: calc(var(--scrollbar-overlay-width, 10px) * -1);
+  padding: 0 8px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.history-item {
+  position: relative;
+  padding: 10px 12px 8px 12px;
+  background: var(--bg-element);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+  margin: 0 8px 2px 8px;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.history-item.compact {
+  height: 100%;
+  padding: 6px 10px 4px 10px;
+}
+
+.history-item:hover {
+  transform: var(--card-hover-transform);
+  box-shadow: var(--card-hover-shadow);
+  background: var(--bg-input);
+  border-color: var(--card-hover-border-color);
+}
+
+.history-item:active {
+  transform: var(--card-active-transform);
+  box-shadow: var(--card-active-shadow);
+}
+
+.pinned-reorder.dragging .history-item,
+.pinned-reorder.dragging .history-item:hover,
+.pinned-reorder.dragging .history-item:active {
+  transform: none;
+  box-shadow: none;
+}
+
+.pinned-reorder.dragging .history-item {
+  transition: none;
+}
+
+.drag-handle {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  transition: all 0.2s;
+  color: var(--text-secondary);
+}
+
+.drag-handle:hover {
+  opacity: 1 !important;
+  color: var(--accent-color) !important;
+  background: rgba(var(--accent-color-rgb), 0.08);
+}
+
+.drag-handle:active {
+  cursor: grabbing !important;
+}
+
+/* Hover-revealed variant for the reorderable favorite / recent-opened lists
+   (the clipboard pinned handle stays always-visible at 0.5 opacity). */
+.drag-handle.drag-handle--hover {
+  opacity: 0;
+}
+.history-item:hover .drag-handle.drag-handle--hover,
+.history-item:focus-within .drag-handle.drag-handle--hover {
+  opacity: 0.5;
+}
+
+.history-item[data-reordering="true"] {
+  z-index: 9999;
+  box-shadow: var(--card-selected-shadow);
+  background: var(--card-selected-background);
+  transform: scale(1.01);
+}
+
+/* All default header actions must remain reachable at the native 250px minimum. */
+@media (max-width: 320px) {
+  .header-top { padding-inline: 8px; gap: 4px; }
+  .header-actions { gap: 2px; flex-shrink: 0; }
+  .header-actions .btn-icon {
+    width: 24px;
+    height: 26px;
+    min-width: 24px;
+    padding: 2px;
+    flex: 0 0 24px;
+  }
+  .header-title { font-size: 13px; letter-spacing: 0; padding-inline: 2px; }
+}

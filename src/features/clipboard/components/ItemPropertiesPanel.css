@@ -1,0 +1,176 @@
+/*
+ * Keep the panel above every list layer: hovered compact cards sit at
+ * z-index 100 (!important), menu-open cards at 1000, and a dragging card at
+ * 9999, while the shared .modal-overlay base is only 3000.
+ */
+.ips-overlay {
+  z-index: 10001;
+}
+
+/* Quicker-style properties panel (overlay inside the main window) */
+.item-properties-panel {
+  background: linear-gradient(var(--bg-panel), var(--bg-panel)), var(--bg-body);
+  padding: 14px;
+  border: var(--modal-border);
+  border-radius: var(--modal-radius);
+  box-shadow: var(--modal-shadow);
+  width: 100%;
+  max-width: 420px;
+  max-height: min(80vh, 560px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--text-primary);
+}
+
+.ips-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ips-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.ips-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.ips-close-btn:hover {
+  background: var(--bg-element);
+  color: var(--text-primary);
+}
+
+.ips-section {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ips-field-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+}
+
+.ips-title-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 12px;
+  color: var(--text-primary);
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ips-title-input:focus {
+  border-color: var(--accent-color);
+}
+
+.ips-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.ips-tab {
+  flex: 0 0 auto;
+  padding: 3px 10px;
+  font-size: 11px;
+  border: 1px solid var(--border-dark);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.ips-tab:hover:not(:disabled) {
+  color: var(--text-primary);
+}
+
+.ips-tab--active {
+  background: var(--bg-element);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.ips-tab:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ips-source-content {
+  margin: 0;
+  max-height: 160px;
+  overflow: auto;
+  background: var(--bg-input);
+  border: 1px solid var(--border-dark);
+  border-radius: 0 4px 4px 4px;
+  padding: 8px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  white-space: pre-wrap;
+  word-break: break-all;
+  user-select: text;
+  cursor: text;
+}
+
+.ips-props-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-element);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.ips-prop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 11px;
+}
+
+.ips-prop-key {
+  color: var(--text-secondary);
+  flex: 0 0 auto;
+}
+
+.ips-prop-value {
+  color: var(--text-primary);
+  text-align: right;
+  word-break: break-all;
+  user-select: text;
+}
+
+.ips-prop-row--check {
+  cursor: pointer;
+}
+
+.ips-prop-row--check input[type="checkbox"] {
+  accent-color: var(--accent-color);
+  cursor: pointer;
+}

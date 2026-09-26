@@ -1,0 +1,45 @@
+name: 问题反馈
+description: 报告落笺的错误或异常
+title: "[问题] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: 发生了什么
+      description: 简单描述遇到的问题。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 打开落笺
+        2. 点击……
+        3. 看到……
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望的结果
+  - type: input
+    id: version
+    attributes:
+      label: 落笺版本
+      description: 设置页底部可以看到版本号。
+      placeholder: "例如 0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: 系统版本
+      placeholder: "例如 Windows 11 24H2"
+  - type: textarea
+    id: logs
+    attributes:
+      label: 截图或日志
+      description: 可以直接粘贴截图；日志在 %APPDATA%\io.github.qiluo11.luojian\luojian.log，请先删去隐私内容。
