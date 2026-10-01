@@ -15,15 +15,20 @@ FOR A PARTICULAR PURPOSE.
 ## Modifications
 
 qiluo11 modified TieZ (based on TieZ 0.3.3) starting in September 2026 and
-released the result as 落笺 LuoJian 0.1.0 on 2026-09-26. Main changes:
+released the result as 落笺 LuoJian 0.1.0 on 2026-09-26; 0.2.0 followed.
+Main changes:
 
 - New name, icon and application identifier (`io.github.qiluo11.luojian`),
   with a one-time copy import of existing TieZ data.
 - Favorites, a "recently opened" page, pinned-items page, tag rules and tag
   layout, web AI prompts, a right-click context menu, hotkey fixes, new themes
   and a silent-start fix.
-- Removed announcements, website promotion, online updates, MQTT / WebDAV
-  cloud sync, the API-based AI and the upstream donation links.
+- Removed announcements, website promotion, the upstream online updater
+  (replaced by this project's own signed updater), MQTT / WebDAV cloud sync, the API-based AI and the upstream
+  donation links.
+- 0.2.0: press-and-drag ordering of header buttons, category tabs and search
+  tags; update check against GitHub Releases with signed one-click update
+  (can be disabled).
 - Kept LAN file transfer and fixed its auto-close option and three commands
   that were never registered.
 - Lower WebView2 memory use while the window is hidden.

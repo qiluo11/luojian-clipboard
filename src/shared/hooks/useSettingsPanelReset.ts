@@ -21,7 +21,9 @@ export const useSettingsPanelReset = ({
         file_transfer: true,
 
         default_apps: true,
-        data: true
+        data: true,
+        ui_order: true,
+        update: true
       });
     }
   }, [showSettings, setCollapsedGroups, setSettingsSubpage]);

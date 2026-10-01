@@ -70,7 +70,7 @@ unsafe fn foreground_process_name() -> Option<String> {
 
 /// 用系统默认方式（ShellExecuteW "open"）打开 URL，交给默认浏览器。
 /// 不走 tauri opener 前端插件：整条链在后台线程执行，与前端解耦。
-fn open_url(url: &str) -> AppResult<()> {
+pub(crate) fn open_url(url: &str) -> AppResult<()> {
     #[cfg(target_os = "windows")]
     {
         use windows::core::{HSTRING, PCWSTR};

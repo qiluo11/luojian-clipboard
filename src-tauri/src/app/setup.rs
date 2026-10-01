@@ -699,6 +699,8 @@ fn start_services(app: &App, s: &StartupSettings, app_handle: AppHandle) {
     crate::services::clipboard::start_clipboard_monitor(app_handle.clone());
     start_edge_docking_monitor(app_handle.clone());
     crate::app::memory_saver::start(app_handle.clone());
+    // 检测更新（只提示）：按设置频率在后台查询 GitHub 最新 Release
+    crate::services::update_check::start(app_handle.clone());
 
     let db_state = app.state::<DbState>();
 

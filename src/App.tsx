@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import { listen } from "@tauri-apps/api/event";
 import ToastContainer from "./shared/components/ToastContainer";
 import ConfirmDialog from "./shared/components/ConfirmDialog";
+import UpdateDialog from "./features/update/UpdateDialog";
 
 import { translations } from "./locales";
 import AppHeader from "./features/app/components/AppHeader";
@@ -171,6 +172,7 @@ const App = () => {
     setPersistentLimitEnabled,
     persistentLimit,
     setPersistentLimit,
+    appSettings,
     setAppSettings,
     setDefaultApps,
     setInstalledApps,
@@ -495,7 +497,8 @@ const App = () => {
   const toggleGroup = (group: string) => {
     setCollapsedGroups(prev => ({
       ...prev,
-      [group]: !prev[group],
+      // Groups missing from the state count as collapsed (the default).
+      [group]: !(prev[group] ?? true),
     }));
   };
 
@@ -1144,6 +1147,8 @@ const App = () => {
         showFavorites={showFavorites}
         setShowFavorites={setShowFavorites}
         onBack={handleHeaderBack}
+        appSettings={appSettings}
+        saveAppSetting={saveAppSetting}
         onToggleChat={handleToggleHeaderChat}
       />
 
@@ -1206,6 +1211,8 @@ const App = () => {
         onClose={closeConfirm}
         onConfirm={confirmDialog.onConfirm}
       />
+
+      <UpdateDialog t={t} theme={theme} />
 
       {propertiesTarget && (
         <ItemPropertiesPanel

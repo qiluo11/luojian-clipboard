@@ -1,6 +1,6 @@
 [package]
 name = "luojian"
-version = "0.1.0"
+version = "0.2.0"
 description = "LuoJian (落笺) clipboard manager, a modified version of TieZ"
 authors = ["LongDz", "qiluo11"]
 edition = "2021"
@@ -46,6 +46,8 @@ tauri-plugin-window-state = "2"
 uuid = { version = "1.19.0", features = ["v4"] }
 urlencoding = "2.1.3"
 tauri-plugin-autostart = "2"
+# 一键更新（签名校验，读取 GitHub Release 里的 latest.json）
+tauri-plugin-updater = "2"
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "blocking"] }
 windows-version = "0.1.1"
 # Windows Explorer access-history collection: Recent (*.lnk) directory watcher.

@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { LayoutGroup, MotionConfig, motion } from "framer-motion";
 import { getTagColor } from "../../../shared/lib/utils";
 import type { TagCatalogEntry } from "../../../shared/hooks/useTagCatalog";
+import type { useLongPressReorder } from "../../../shared/hooks/useLongPressReorder";
 
 interface SearchTagStripProps {
   t: (key: string) => string;
@@ -11,6 +12,8 @@ interface SearchTagStripProps {
   onSelect: (tag: string | null) => void;
   theme: string;
   tagColors: Record<string, string>;
+  /** Long-press drag reordering (optional). */
+  reorder?: ReturnType<typeof useLongPressReorder>;
 }
 
 const EASE_OUT: [number, number, number, number] = [0.2, 0, 0, 1];
@@ -19,12 +22,13 @@ const EASE_OUT: [number, number, number, number] = [0.2, 0, 0, 1];
  * Always-visible single-row tag filter under the search input. It no longer
  * mounts on focus / unmounts on blur, so the list below never jumps.
  */
-const SearchTagStrip = ({ t, tags, activeTag, onSelect, theme, tagColors }: SearchTagStripProps) => (
+const SearchTagStrip = ({ t, tags, activeTag, onSelect, theme, tagColors, reorder }: SearchTagStripProps) => (
   <MotionConfig reducedMotion="user">
     <LayoutGroup id="search-tag-strip">
       <motion.div
         layoutScroll
-        className="search-tag-strip window-no-drag hide-scrollbar"
+        ref={reorder?.containerRef}
+        className={`search-tag-strip window-no-drag hide-scrollbar${reorder?.draggingId ? " reordering" : ""}`}
         role="toolbar"
         aria-label={t("tags")}
         onWheel={(e) => {
@@ -43,8 +47,11 @@ const SearchTagStrip = ({ t, tags, activeTag, onSelect, theme, tagColors }: Sear
             return (
               <motion.button
                 key={tag.name}
+                {...(reorder ? reorder.itemProps(tag.name) : {})}
                 type="button"
-                layout="position"
+                // Stand down while a long-press drag runs: the reorder hook animates
+                // the chips itself (two layout systems fighting caused jumps).
+                layout={reorder?.busy ? false : "position"}
                 initial={{ opacity: 0, y: 4 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{

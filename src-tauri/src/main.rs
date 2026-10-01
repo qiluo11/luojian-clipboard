@@ -38,6 +38,8 @@ fn main() {
                 .build(),
         )
         .plugin(tauri_plugin_single_instance::init(|_app, _args, _cwd| {}))
+        // 一键更新：只在 Rust 端使用（services::update_check），前端不直接调用插件。
+        .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_autostart::init(
             tauri_plugin_autostart::MacosLauncher::LaunchAgent,
             Some(vec!["--minimized"]),
@@ -47,6 +49,11 @@ fn main() {
             Ok(())
         })
         .invoke_handler(tauri::generate_handler![
+            services::update_check::check_for_update,
+            services::update_check::get_pending_update,
+            services::update_check::dismiss_update,
+            services::update_check::open_release_page,
+            services::update_check::install_update,
             app::window_manager::toggle_window_cmd,
             app::window_manager::hide_window_cmd,
             app::window_manager::activate_window_focus,

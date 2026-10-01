@@ -8,3 +8,4 @@ pub mod explorer_history;
 pub mod file_transfer;
 pub mod paste_queue;
 pub mod sensitive_align;
+pub mod update_check;

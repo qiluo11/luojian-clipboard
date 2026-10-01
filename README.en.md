@@ -5,7 +5,7 @@
 
   **LESS FRICTION. MORE FLOW.**
 
-  [![Version](https://img.shields.io/badge/VERSION-0.1.0-9C27B0?style=for-the-badge)](./NOTICE.md)
+  [![Version](https://img.shields.io/badge/VERSION-0.2.0-9C27B0?style=for-the-badge)](./NOTICE.md)
   [![License](https://img.shields.io/badge/LICENSE-GPL--3.0-FF9800?style=for-the-badge)](./LICENSE)
   [![Platform](https://img.shields.io/badge/PLATFORM-WINDOWS-2196F3?style=for-the-badge)](#system-requirements)
   [![Based on](https://img.shields.io/badge/BASED%20ON-TieZ-4CAF50?style=for-the-badge)](https://github.com/jimuzhe/tiez-clipboard)
@@ -25,14 +25,15 @@ LuoJian is a clipboard manager for Windows. It is a modified version of the open
 | :--- | :--- |
 | **Favorites** | Separate favorites with groups, custom titles, in-group search, drag-and-drop ordering, move and delete. |
 | **Recently opened** | Files and folders opened in Explorer or listed in Recent; search, pin, sort by time, count, name or manually; left-click to open. |
-| **Organize** | Pinned items can live on their own page instead of crowding the history; the tag page adapts to narrow windows with batch actions on a separate row; per-tag regex rules sort new items automatically. |
+| **Organize** | Pinned items can live on their own page instead of crowding the history; the tag page adapts to narrow windows with batch actions on a separate row; per-tag regex rules sort new items automatically; header buttons, category tabs and search tags can be reordered by press-and-drag. |
 | **Web AI** | Right-click an item, pick a prompt (translate, summarize, polish, or your own), and LuoJian opens the web AI and pastes for you. Each site has its own wait time, and the foreground window is checked to be a browser before pasting. |
 | **Context menu** | Right-click opens a menu instead of pasting immediately; favorites, web AI and properties are grouped there, and the menu stays inside the window. |
 | **Hotkeys** | Readable key names (e.g. Alt + F); more reliable re-recording; a failed save keeps the old binding. Alt+F or the search button toggles the search bar at any time. |
 | **Themes** | 8 themes instead of 5 (new: Modern Minimal and Graphite; Sakura is inherited from upstream); notifications and menus follow the theme. |
 | **Startup** | No window flash on silent start; the autostart path repairs itself. |
 | **File transfer** | LAN file transfer is kept and shown directly in Settings; fixed "Auto close server", pasting images in the chat, switching the displayed IP and copying download links, which did not work in the original. |
-| **Leaner** | Removed official announcements, website promotion, online updates, MQTT / WebDAV cloud sync and the old API AI (web AI is kept); smaller installer. |
+| **One-click update** | Checks GitHub for a new version daily, weekly (default), monthly or never and shows an in-app dialog. Nothing is downloaded until you click "Update now"; the installer's signature is verified before installing and LuoJian reopens afterwards. You can also download it manually from GitHub or the Lanzou mirror. Checking and downloading contact GitHub (which can see your IP); choose "never" to stay offline. |
+| **Leaner** | Removed official announcements, website promotion, the upstream online updater (replaced by this project's own signed updater), MQTT / WebDAV cloud sync and the old API AI (web AI is kept); smaller installer. |
 | **Memory** | After the window has been hidden for a while, WebView2 memory use is lowered automatically, so LuoJian stays light in the background. |
 
 <p align="center">
@@ -74,6 +75,8 @@ Screenshots are taken from the LuoJian 0.1.0 UI test page with demo data. Other 
 | Platform | Requirements | Package |
 | :--- | :--- | :--- |
 | Windows | Windows 10 / 11 (x64) | NSIS installer `LuoJian_<version>_x64-setup.exe` |
+
+Download: [GitHub Releases](https://github.com/qiluo11/luojian-clipboard/releases/latest); a mirror for mainland China is on [Lanzou cloud](https://wwayd.lanzouu.com/b01gica1pa) (password `edql`).
 
 ## License and credits
 

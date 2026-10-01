@@ -141,6 +141,22 @@ let settings: Record<string, string> = {
   ]),
 };
 if (q.has("volume")) settings["app.sound_volume"] = q.get("volume")!;
+// 检测更新（不联网）：?pendingUpdate=0.9.0 模拟后台已发现新版本；?latest=0.9.0 模拟手动检查结果
+const updateInfo = (latest: string) => ({
+  current_version: "0.2.0",
+  latest_version: latest,
+  has_update: latest !== "0.2.0",
+  release_url: `https://github.com/qiluo11/luojian-clipboard/releases/tag/v${latest}`,
+  release_name: `落笺 ${latest}`,
+  notes: "合成的更新说明：\n- 示例条目一\n- 示例条目二",
+  published_at: "2026-10-01T00:00:00Z",
+});
+// ?tagOrder=甲,乙：预设“自定义”标签顺序（只含部分标签，其余应按次数排在后面）
+if (q.get("tagOrder")) {
+  settings["app.search_tag_sort"] = "custom";
+  settings["app.search_tag_order"] = JSON.stringify(q.get("tagOrder")!.split(","));
+}
+if (q.get("pendingUpdate")) settings["app.update_pending"] = JSON.stringify(updateInfo(q.get("pendingUpdate")!));
 if (q.has("defaults")) {
   for (const key of ["app.autostart", "app.sound_enabled", "app.sound_paste_enabled", "app.persistent", "app.pinned_only_in_pinned"]) {
     if (q.get("defaults") === "off") settings[key] = "false";
@@ -175,6 +191,8 @@ const fail: Record<string, boolean> = {};
   settings,
   history,
   emit: (event: string, payload: any) => emit(event, payload),
+  // 一键更新：测试用 __audit.install.resolve() / reject("原因") 结束 install_update
+  install: null as null | { resolve: (v?: any) => void; reject: (e: any) => void },
 };
 export async function invoke(cmd: string, args: any = {}) {
   calls.push({ cmd, args, time: performance.now() });
@@ -295,6 +313,29 @@ export async function invoke(cmd: string, args: any = {}) {
     case "get_explorer_history":
     case "list_explorer_history":
       return q.has("demo") ? explorerDemo : [];
+    case "get_pending_update": {
+      const raw = settings["app.update_pending"];
+      if (!raw) return null;
+      const info = JSON.parse(raw);
+      return info.latest_version === settings["app.update_skipped_version"] ? null : info;
+    }
+    case "check_for_update": {
+      if (fail["check_for_update"]) throw new Error("network: synthetic failure");
+      // 真实后端以字符串拒绝；模拟 GitHub 上没有 latest.json（404）
+      if (fail["check_for_update_nojson"])
+        throw "网络错误: Could not fetch a valid release JSON from the remote";
+      const info = updateInfo(q.get("latest") || "0.2.0");
+      if (info.has_update) settings["app.update_pending"] = JSON.stringify(info);
+      return info;
+    }
+    case "install_update":
+      return new Promise((resolve, reject) => {
+        (window as any).__audit.install = { resolve, reject };
+      });
+    case "dismiss_update":
+      if (args.skip) settings["app.update_skipped_version"] = args.version;
+      settings["app.update_pending"] = "";
+      return null;
     case "get_emoji_favorites":
       return [];
     case "delete_clipboard_entry":

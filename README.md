@@ -7,7 +7,7 @@
   <br>
   LESS FRICTION. MORE FLOW.
 
-  [![Version](https://img.shields.io/badge/VERSION-0.1.0-9C27B0?style=for-the-badge)](./NOTICE.md)
+  [![Version](https://img.shields.io/badge/VERSION-0.2.0-9C27B0?style=for-the-badge)](./NOTICE.md)
   [![License](https://img.shields.io/badge/LICENSE-GPL--3.0-FF9800?style=for-the-badge)](./LICENSE)
   [![Platform](https://img.shields.io/badge/PLATFORM-WINDOWS-2196F3?style=for-the-badge)](#系统要求)
   [![Based on](https://img.shields.io/badge/BASED%20ON-TieZ-4CAF50?style=for-the-badge)](https://github.com/jimuzhe/tiez-clipboard)
@@ -27,14 +27,15 @@
 | :--- | :--- |
 | **收藏** | 独立收藏夹：分组、重命名标题、组内搜索、拖动排序、移动和删除。 |
 | **最近打开** | 从资源管理器和“最近使用”采集打开过的文件与文件夹；可搜索、置顶，按时间、次数、名称或手动排序；左键直接打开。 |
-| **整理** | 置顶内容可单独成页，不挤占普通历史；标签页适配窄窗口，批量操作单独一行；每个标签可设置正则规则，新内容自动归类。 |
+| **整理** | 置顶内容可单独成页，不挤占普通历史；标签页适配窄窗口，批量操作单独一行；每个标签可设置正则规则，新内容自动归类；顶部按钮、分类标签和搜索栏标签可长按拖动排序。 |
 | **网页 AI** | 右键条目 → 选提示词（翻译、总结、润色等，可自定义）→ 打开网页版 AI 并自动粘贴；每个网站可单独设置等待时间，粘贴前核对前台是浏览器。 |
 | **右键菜单** | 右键先弹菜单而不是直接粘贴；收藏、网页 AI、属性集中在菜单里，菜单不会超出窗口。 |
 | **快捷键** | 显示为可读键名（如 Alt + F）；重新录入更稳定；保存失败时保留原来的绑定。Alt+F 或搜索按钮可随时打开/关闭搜索栏。 |
 | **主题** | 从 5 套增加到 8 套（新增现代简约、石墨灰，并继承上游的樱花）；通知和菜单跟随主题。 |
 | **启动** | 修复静默启动时窗口闪现；开机自启路径自动修正。 |
 | **文件传输** | 保留局域网文件传输，设置里直接显示入口；修好了原版不起作用的“自动关闭服务”、聊天里粘贴图片、切换显示的 IP 和复制下载链接。 |
-| **精简** | 移除官方公告、官网推广、在线更新、MQTT/WebDAV 云同步和旧的 API AI（保留网页 AI），安装包更小。 |
+| **一键更新** | 可选每日、每周（默认）、每月或永不检查 GitHub 上的新版本，发现后在应用内弹框提示。点“立即更新”才会下载，安装前校验安装包签名，装完自动重新打开；也可以“前往下载”或从蓝奏云手动安装。检查和下载都会访问 GitHub（对方能看到你的 IP），选“永不”则不会自动联网。 |
+| **精简** | 移除官方公告、官网推广、原作者的在线更新（改为本项目自己的签名更新）、MQTT/WebDAV 云同步和旧的 API AI（保留网页 AI），安装包更小。 |
 | **内存** | 窗口隐藏一段时间后自动降低 WebView2 内存占用，常驻后台更省资源。 |
 
 <p align="center">
@@ -76,6 +77,8 @@
 | 平台 | 要求 | 安装包 |
 | :--- | :--- | :--- |
 | Windows | Windows 10 / 11（x64） | NSIS 安装程序 `LuoJian_<版本>_x64-setup.exe` |
+
+下载：[GitHub Releases](https://github.com/qiluo11/luojian-clipboard/releases/latest)；国内也可以用 [蓝奏云](https://wwayd.lanzouu.com/b01gica1pa)（密码 `edql`）。
 
 ## 许可证与致谢
 

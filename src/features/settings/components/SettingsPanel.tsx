@@ -12,6 +12,8 @@ import ClipboardSettingsGroup from "./groups/ClipboardSettingsGroup";
 import AdvancedSettingsGroup from "./groups/AdvancedSettingsGroup";
 import AppearanceSettingsGroup from "./groups/AppearanceSettingsGroup";
 import DefaultAppsSettingsGroup from "./groups/DefaultAppsSettingsGroup";
+import UiOrderSettingsGroup from "./groups/UiOrderSettingsGroup";
+import UpdateSettingsGroup from "./groups/UpdateSettingsGroup";
 import DataSettingsGroup from "./groups/DataSettingsGroup";
 import WebAiSettingsGroup from "./groups/WebAiSettingsGroup";
 import FileTransferSettingsGroup from "./groups/FileTransferSettingsGroup";
@@ -483,6 +485,24 @@ const SettingsPanel = (props: SettingsPanelProps) => {
                 collapsed={collapsedGroups['data']}
                 onToggle={() => toggleGroup('data')}
                 dataPath={dataPath}
+            />
+
+            {/* 界面排序（长按拖动） */}
+            <UiOrderSettingsGroup
+                t={t}
+                collapsed={collapsedGroups['ui_order'] ?? true}
+                onToggle={() => toggleGroup('ui_order')}
+                appSettings={appSettings}
+                saveAppSetting={saveAppSetting}
+            />
+
+            {/* 检测更新 */}
+            <UpdateSettingsGroup
+                t={t}
+                collapsed={collapsedGroups['update'] ?? true}
+                onToggle={() => toggleGroup('update')}
+                appSettings={appSettings}
+                saveAppSetting={saveAppSetting}
             />
 
             <div className="settings-group">
